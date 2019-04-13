@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <script src="./js/flexible.js"></script>
+    <script src="./js/artTemp.js"></script>
+
+
+    <title>生僻字大合集</title>
+
+    <style type="text/css">
+        * {
+            font-family: 宋体;
+            color: #350000;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .swiper-slide {
+            position: relative;
+            background-image: url(img/bg.png);
+            background-size: 100% 100%;
+        }
+
+
+
+        .shouye_bg {
+            position: relative;
+            margin-top: 10%;
+        }
+
+        .shouye_bg_img {
+            width: 100%;
+
+
+        }
+
+        .shouye_bg .start {
+
+            position: absolute;
+            width: 6rem;
+            height: 1.5rem;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3rem;
+            z-index: 9999;
+        }
+
+        .guize_bg .start {
+            position: absolute;
+            width: 6rem;
+            height: 1.5rem;
+            bottom: 0.8rem;
+            left: 50%;
+            margin-left: -3rem;
+            z-index: 9999;
+        }
+
+        .close {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            top: 0.3rem;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .guize {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            bottom: 2rem;
+            left: 1rem;
+
+        }
+
+        .conver {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+
+        .share_bg .conver {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
+
+        .guize_bg {
+            position: absolute;
+            top: 2rem;
+            width: 90%;
+            left: 5%;
+            display: none;
+            z-index: 999;
+        }
+
+        .guize_img {
+            width: 100%;
+            left: 0;
+            position: relative;
+            top: 0;
+            z-index: 999;
+        }
+
+        .swiper-slide-title {
+            position: relative;
+            top: 2rem;
+            text-align: center;
+            padding-left: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .dianzige {
+            position: relative;
+            background-image: url(img/dianzige.png);
+            background-size: 100% 100%;
+            width: 5rem;
+            height: 5rem;
+            top: 3rem;
+            left: 50%;
+            margin-left: -2.5rem;
+            text-align: center;
+        }
+
+        .text_bg {
+            position: absolute;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        .text_bg_img {
+            width: 100%;
+        }
+
+        .dianzige_text {
+            font-size: 4.5rem;
+            height: 5rem;
+            line-height: 5rem;
+        }
+
+        .text_bg_txt {
+            position: absolute;
+            top: 0;
+            width: 25%;
+            height: 4rem;
+        }
+
+        .text_bg_txt1 {
+            position: absolute;
+            font-size: 0.55rem;
+            top: 1rem;
+            right: 0.2rem;
+            transform: rotate(7deg);
+            font-weight: bold;
+        }
+
+        .text_bg_txt2 {
+            position: absolute;
+            font-size: 0.55rem;
+            top: 0.85rem;
+            right: 0.25rem;
+            transform: rotate(6deg);
+            font-weight: bold;
+        }
+
+        .text_bg_txt3 {
+            position: absolute;
+            font-size: 0.55rem;
+            top: 1.2rem;
+            right: 0.25rem;
+            transform: rotate(-6deg);
+            font-weight: bold;
+        }
+
+        .text_bg_txt4 {
+            position: absolute;
+            font-size: 0.55rem;
+            top: 1.6rem;
+            right: 0.4rem;
+            transform: rotate(9deg);
+            font-weight: bold;
+        }
+
+        .text_bg_bottom {
+            bottom: 0;
+            width: 100%;
+            height: 1.5rem;
+            background: #e4d8cd;
+            position: absolute;
+            z-index: 0;
+        }
+
+        .text_bg_txt_icon {
+            position: absolute;
+            width: 0.5rem;
+            top: 1.5rem;
+            left: 0.7rem;
+            display: none;
+        }
+
+        .text_bg_txt_selected .text_bg_txt_icon {
+            display: block;
+        }
+
+        .text_bg_txt_icon_right {
+            width: 0.6rem;
+        }
+
+        .text_bg_Notes {
+            font-size: 0.32rem;
+            position: absolute;
+            top: 6rem;
+            width: 78%;
+            left: 11%;
+            font-family: 黑体;
+            z-index: 99999;
+        }
+
+        .next {
+            display: none;
+            position: absolute;
+            width: 0.65rem;
+            bottom: 0.5rem;
+            right: 0.4rem;
+            z-index: 99999;
+        }
+
+
+        .end_bg {
+            position: relative;
+            margin-top: 10%;
+        }
+
+        .end_bg_img {
+            width: 90%;
+            margin-left: 5%;
+
+
+        }
+
+        .end_bg .again {
+
+            position: absolute;
+            width: 50%;
+            bottom: 1.5rem;
+            height: 2rem;
+            left: 0;
+
+        }
+
+        .end_bg .share {
+            position: absolute;
+            width: 50%;
+            bottom: 1.5rem;
+            height: 2rem;
+            right: 0;
+
+        }
+
+        .end_bg .end_bg_text {
+            position: absolute;
+            top: 3.6rem;
+            text-align: center;
+            width: 100%;
+            font-size: 1.6rem;
+            color: #a12209;
+        }
+
+        .share_bg {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .share_img {
+            position: absolute;
+            z-index: 999;
+            width: 9.5rem;
+            top: 2rem;
+            left: 0.25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="rightAudio">
+        <source src="audio/right.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="errorAudio">
+        <source src="audio/error.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="swiper-container swiper-no-swiping">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="page1">
+                <div class="shouye_bg">
+                    <img class="shouye_bg_img" src="img/shouye.png"></img>
+                    <div class="start"></div>
+                    <div class="guize"></div>
+                </div>
+                <div class="guize_bg">
+                    <div class="conver"></div>
+                    <img class="guize_img" src="img/guize.png"></img>
+                    <div class="start"></div>
+                    <div class="close"></div>
+                </div>
+            </div>
+
+            <div class="swiper-slide" id="end">
+                <div class="end_bg">
+                    <p class="end_bg_text">96分</p>
+                    <img class="end_bg_img" src="img/end_bg.png"></img>
+                    <div class="again"></div>
+                    <div class="share"></div>
+                </div>
+
+
+                <div class="share_bg">
+                    <div class="conver"></div>
+                    <img class="share_img" src="img/share.png"></img>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script id="template" type="text/html">
+
+            <% for(i=0;i<datas.length;++i) {%>
+           
+                <div class="swiper-slide">
+                    <p class="swiper-slide-title">请选择正确的读音：</p>
+                    <div class="dianzige">
+                        <span class="dianzige_text"><%=datas[i].fonts%></span>
+                    </div>
+                    <div class="text_bg_bottom"></div>
+                    <div class="text_bg">
+    
+                        <img class="text_bg_img" src="img/text_bg.png"></img>
+                        <div class="text_bg_txt" > 
+                            <img style="top: 1.2rem;" class="text_bg_txt_icon text_bg_txt_icon_<%=datas[i].fonts_strs[0].isR%>" src="img/<%=datas[i].fonts_strs[0].isR%>.png"></img>
+                            <span class="text_bg_txt1"><%=datas[i].fonts_strs[0].fonts_str%></span>
+                        </div>
+                        <div class="text_bg_txt" style="left:25%">
+                                <img  style="top: 1.2rem;" class="text_bg_txt_icon text_bg_txt_icon_<%=datas[i].fonts_strs[1].isR%>" src="img/<%=datas[i].fonts_strs[1].isR%>.png"></img>
+                             <span class="text_bg_txt2"><%=datas[i].fonts_strs[1].fonts_str%></span>
+                            </div>
+                        <div class="text_bg_txt" style="right:25%"> 
+                                <img style="top: 1.6rem;left: 0.7rem;" class="text_bg_txt_icon text_bg_txt_icon_<%=datas[i].fonts_strs[2].isR%>" src="img/<%=datas[i].fonts_strs[2].isR%>.png"></img>
+                            <span class="text_bg_txt3"><%=datas[i].fonts_strs[2].fonts_str%></span>
+                        </div>
+                        <div class="text_bg_txt" style="right:0"> 
+                                <img style="top: 1.6rem;" class="text_bg_txt_icon text_bg_txt_icon_<%=datas[i].fonts_strs[3].isR%>" src="img/<%=datas[i].fonts_strs[3].isR%>.png"></img>
+                            <span class="text_bg_txt4"><%=datas[i].fonts_strs[3].fonts_str%></span>
+                        </div>
+
+                        <div class="text_bg_Notes"><%=datas[i].notes%></div>
+                    </div>
+                
+                    <img class="next" src="img/next.png"></img>
+                </div>
+
+                
+            <%}%>
+       
+
+
+    </script>
+    <script src="./js/jquery-1.8.0.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script type="text/javascript">
+        var data = {
+            datas: [
+                {
+                    fonts: '茕',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'qíng',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'qióng',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'yíng',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'líng',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：茕是形声字，卂(xùn)为形，营(繁体)省吕为声，兼表回环。又写作惸，形旁是忄，声旁是㝁(qióng)。茕本意是鸟盘旋疾飞。常用指没有弟兄、孤独，即茕独，引申为忧愁。'
+                }, {
+                    fonts: '瓞',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'dié',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'guā',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'diā',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'jiě',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：形声。从瓜,失声。本义:小瓜'
+                }, {
+                    fonts: '沆',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'hàng',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'kēng',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'hāng',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'kōng',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：形声。字从水，从亢(gāng)，亢亦声。"亢"为"航"省。"水"与"航"省联合起来表示"在水上航行"。本义:在水上航行。转义:航船周边水茫茫的样子。'
+                }, {
+                    fonts: '圭',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'wā',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'guì',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'guī',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'qí',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：会意。"从重土"。本义:古玉器名。长条形，上圆(或剑头形)下方。中国古代贵族朝聘、祭祀、丧葬时以为礼器。依其大小，以别尊卑。又作珪。'
+                }, {
+                    fonts: '莠',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'xiù',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'yòu',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'qí',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yǒu',
+                            isR: 'right'
+                        },
+                    ],
+                    notes: '注释：1、草名，即"狗尾草" [green foxtail]。一年生草本植物，样子很像谷子2、品质坏的、不好的人'
+                }, {
+                    fonts: '卬',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'áng',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'mǒu',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'máo',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yìn',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：通"昂"。抬起;抬高'
+                }, {
+                    fonts: '躞',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'xìn',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'xié',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yìn',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'xiè',
+                            isR: 'right'
+                        },
+                    ],
+                    notes: '注释：小步走路的样子。'
+                }, {
+                    fonts: '囹',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'líng',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'lìng',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'lín',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'liáng',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：形声字;共有8画。指古时监狱。'
+                }, {
+                    fonts: '圄',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'wú',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'yù',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yǔ',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'yún',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：1、形声。从囗(wéi)，从吾，吾亦声。"囗","围"的本字，表示限制在某个范围。"吾"义为"中立的"、"不偏不倚的"、"公正的"、"官府的"。2、当是国的意思。'
+                }, {
+                    fonts: '觊',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'jì',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'qí',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'qǐ',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'kǎi',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：形声。从见,岂声。本义:希望得到。'
+                }, {
+                    fonts: '觎',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'yú',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'jiàn',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yù',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'xiàn',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：非分的希望'
+                }, {
+                    fonts: '稂',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'liàng',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'liáng',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'làng',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'láng',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：形声。从瓜,失声。本义:小瓜'
+                }, {
+                    fonts: '靁',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'hōng',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'lèi',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'léi',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'háng',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：其音、字、意皆同雷，1.由于下雨时带异性电的两块云相接，空中闪电发出的强大的声音。2.军事用的爆炸武器。'
+                }, {
+                    fonts: '虺',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'zhǒng',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'zōng',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'huī',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'dòng',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：虺是古代汉族传说中龙的一种，以爬虫类的蛇作模特儿想象出来的，常在水中。'
+                }, {
+                    fonts: '孑',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'zǐ',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'xié',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'jué',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'jié',
+                            isR: 'right'
+                        },
+                    ],
+                    notes: '注释：1、单独，孤单2、古同"戟"，古代兵器名。'
+                }, {
+                    fonts: '孓',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'jué',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'jié',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'zǐ',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'xié',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：通称跟头虫。'
+                }, {
+                    fonts: '耄',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'máo',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'lǎo',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'mào',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'móu',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：大约七十至九十岁年龄的古称，形容年老，引申为昏乱之义。'
+                }, {
+                    fonts: '耋',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'dié',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'mào',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'lǎo',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'qǐ',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：:年老。古指七、八十岁的年纪，泛指老年。'
+                }, {
+                    fonts: '醍',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'tí',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'tī',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'xǐng',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'shì',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：最精纯的酥酪。'
+                }, {
+                    fonts: '咄',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'duō',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'chū',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'duó',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'cuó',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：表示叮斥或惊异'
+                }, {
+                    fonts: '狖',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'yòu',
+                            isR: 'right'
+                        },
+                        {
+                            fonts_str: 'xué',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'shòu',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yǒu',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：古书上说的一种猴，黄黑色，尾巴很长'
+                }, {
+                    fonts: '悛',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'jùn',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'juàn',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'quān',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'xūn',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：形声。本义:停止，止息;后悔做过某事。'
+                }, {
+                    fonts: '龘',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'lóng',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'dá',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'juàn',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'dǎ',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：形容群龙腾飞的样子。'
+                }, {
+                    fonts: '烎',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'kāi',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'huǒ',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yín',
+                            isR: 'right'
+                        }, {
+                            fonts_str: 'yán',
+                            isR: 'error'
+                        },
+                    ],
+                    notes: '注释：光明，现在多用来形容一个人的斗志昂扬、热血沸腾，可以用来表示“霸气”、“彪悍”、“制霸”等诸多意。'
+                }, {
+                    fonts: '燚',
+                    fonts_strs: [
+                        {
+                            fonts_str: 'yán',
+                            isR: 'error'
+                        },
+                        {
+                            fonts_str: 'yàn',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yī',
+                            isR: 'error'
+                        }, {
+                            fonts_str: 'yì',
+                            isR: 'right'
+                        },
+                    ],
+                    notes: '注释：1.火貌(新华字典解释:形容火剧烈燃烧的样子)2.在人名里有平安的意思'
+
+                }]
+        }
+        var html = template('template', data);
+        $("#page1").after(html);
+        var text_bgs = $(".text_bg_txt");
+        for (var i = 0; i < text_bgs.length; i++) {
+            if (text_bgs.eq(i).find("span").html().length == 3) {
+                text_bgs.eq(i).find("span").css("margin-right", '0.3rem')
+            }
+            if (text_bgs.eq(i).find("span").html().length == 5) {
+                text_bgs.eq(i).find("span").css("margin-right", '-0.2rem')
+            }
+            if (text_bgs.eq(i).find("span").html().length == 2) {
+                text_bgs.eq(i).find("span").css("margin-right", '0.4rem')
+            }
+
+        };
+        $(".text_bg_txt").click(function () {
+
+
+            $(this).parent().find(".text_bg_txt").removeClass('text_bg_txt_selected');
+            $(this).addClass('text_bg_txt_selected');
+
+            if ($(this).find(".text_bg_txt_icon_right").length == 1) {
+
+                setTimeout(function () {
+                    $("#rightAudio")[0].play()
+                }, 0)
+
+            }
+            if ($(this).find(".text_bg_txt_icon_error").length == 1) {
+                setTimeout(function () {
+                    $("#errorAudio")[0].play()
+                }, 0)
+
+            }
+            $(this).parent().nextAll(".next").show();
+
+        })
+        $(".next").click(function () {
+
+            $(".end_bg_text").html($(".text_bg_txt_selected .text_bg_txt_icon_right").length * 4 + '分');
+            mySwiper.slideNext();
+
+        })
+
+
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+        })
+        $(".guize").click(function () {
+            $(".guize_bg").show();
+        })
+        $(".close").click(function () {
+            $(".guize_bg").hide();
+        })
+        $(".start").click(function () {
+            mySwiper.slideNext();
+        })
+
+
+        $(".again").click(function () {
+            $(".next").hide();
+            $(".text_bg_txt").removeClass("text_bg_txt_selected");
+            mySwiper.slideTo(0);
+        })
+        $(".share").click(function () {
+            $(".share_bg").show();
+        })
+        $(".share_bg").click(function () {
+            $(".share_bg").hide();
+        })
+
+        setTimeout(() => {
+            if ($(".dianzige").length > 0) {
+                if (($(".dianzige").eq(0).offset().top + $(".dianzige").eq(0).height()) > $(".text_bg").eq(0).offset().top) {
+                    $(".swiper-slide-title").css("top", "1rem")
+                    $(".dianzige").css("top", "1rem")
+
+
+                }
+            }
+        }, 0);
+    </script>
+
+</body>
+
+</html>
